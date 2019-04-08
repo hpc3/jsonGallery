@@ -1,0 +1,34 @@
+{
+  "images": [
+    {
+      "imgPath": "img/jsonExtra/keystoneField.jpg",
+      "imgLocation": "Somewhere is the Keystone State",
+      "description": "I miss home",
+      "date": "09/22/2018"
+    },
+    {
+      "imgPath": "img/jsonExtra/jettyBeach.jpg",
+      "imgLocation": "Brigantine, NJ",
+      "description": "I miss the Summer",
+      "date": "06/21/18"
+    },
+    {
+      "imgPath": "img/jsonExtra/pierPun.jpg",
+      "imgLocation": "Somewhere in Pennsylvania",
+      "description": "It aPiers to be a pier",
+      "date": "04/01/2018"
+    },
+    {
+      "imgPath": "img/jsonExtra/thatsWaterAlright.jpg",
+      "imgLocation": "The Stream",
+      "description": "Looks like water to me",
+      "date": "10/04/2017"
+    },
+    {
+      "imgPath": "img/jsonExtra/spookWarning.jpg",
+      "imgLocation": "Spooktown, PA",
+      "description": "Here's your spook warning",
+      "date": "09/01/2017"
+    }
+  ]
+}
