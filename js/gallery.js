@@ -33,11 +33,19 @@ function animate() {
 /************* DO NOT TOUCH CODE ABOVE THIS LINE ***************/
 
 function swapPhoto() {
-	//Add code here to access the #slideShow element.
-	//Access the img element and replace its source
-	//with a new image from your images array which is loaded 
-	//from the JSON string
-	console.log('swap photo');
+    if (mCurrentIndex >= mImages.length) {
+        mCurrentIndex = 0;
+    }
+    console.log(mCurrentIndex);
+
+    $(" div.photoHolder > img").attr('src', mImages[mCurrentIndex].imgPath);
+    $(" p.location").text("Location: " + mImages[mCurrentIndex].imgLocation);
+    $(" p.description").text("description: " + mImages[mCurrentIndex].description);
+    $(" p.date").text("Date: " + mImages[mCurrentIndex].date);
+
+    mCurrentIndex++;
+
+    console.log('swap photo');
 }
 
 
@@ -46,6 +54,30 @@ var mCurrentIndex = 0;
 	var mRequest = new XMLHttpRequest();
 	var mImages = [];
 	var mJson;
+    var $_GET = getQueryParams(document.location.search);
+
+
+if($_GET["json"] == undefined) {
+    mUrl = "images.json";
+} else{
+    mUrl = $_GET["json"];
+}
+
+function getQueryParams(qs) {
+    qs = qs.split("+").join(" ");
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])]
+            = decodeURIComponent(tokens[2]);
+    }
+    return params;
+}
+
+
+
+
 
 mRequest.onreadystatechange = function () {
 	if (mRequest.readyState == 4 && mRequest.status == 200){
@@ -73,15 +105,6 @@ mRequest.open("GET", mUrl, true);
 mRequest.send();
 
 
-var mImages = [];
-var mJson;
-
-
-
-
-
-//You can optionally use the following function as your event callback for loading the source of Images from your json data (for HTMLImageObject).
-//@param A GalleryImage object. Use this method for an event handler for loading a gallery Image object (optional).
 function makeGalleryImageOnloadCallback(galleryImage) {
 	return function(e) {
 		galleryImage.img = e.target;
